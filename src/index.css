@@ -1,3 +1,11 @@
+:root {
+  --maroon: #800000;
+  --gold: #D4AF37;
+  --cream: #FFFDD0;
+  --text-dark: #2C1810;
+  --text-light: #5C4033;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +14,42 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #faf9f7;
-  color: #333;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.great-vibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.btn-premium {
+  background: var(--maroon);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 12px 30px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-premium:hover {
+  background: var(--gold);
+  color: var(--maroon);
 }

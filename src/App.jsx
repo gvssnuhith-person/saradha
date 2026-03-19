@@ -1,141 +1,121 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <div className="wedding-app">
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="nav-brand">A &amp; A</div>
-        <ul className="nav-links">
-          <li><a href="#story">Our Story</a></li>
-          <li><a href="#event">The Wedding</a></li>
-          <li><a href="#travel">Travel</a></li>
-          <li><a href="#rsvp">RSVP</a></li>
-        </ul>
+    <div className="wedding-site">
+      {/* Decorative Border Overlay */}
+      <div className="fixed-border top"></div>
+      <div className="fixed-border bottom"></div>
+      <div className="fixed-border left"></div>
+      <div className="fixed-border right"></div>
+
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="nav-logo">C & C</div>
+        <div className="nav-links">
+          <a href="#home">Home</a>
+          <a href="#story">Our Story</a>
+          <a href="#events">Ceremonies</a>
+          <a href="#rsvp">Attendance</a>
+        </div>
       </nav>
 
       <header className="hero" id="home">
-        <div className="hero-overlay">
-          <p className="pre-title">We are getting married</p>
-          <h1 className="title">Alice &amp; Adam</h1>
-          <div className="date-box">
-            <span className="month">November</span>
-            <span className="day">15</span>
-            <span className="year">2026</span>
+        <div className="hero-content">
+          <p className="hero-subtitle">With Blessings of our Families</p>
+          <h1 className="hero-title">Chinni <span className="amp">&</span> Chinnu</h1>
+          <div className="hero-date">
+            <span className="line"></span>
+            <span className="date-text">November 15, 2026</span>
+            <span className="line"></span>
           </div>
-          <p className="hero-location">The Grand Estate • New York, NY</p>
+          <p className="hero-location">The Grand Royal Palace, Hyderabad</p>
         </div>
       </header>
 
-      <section className="section story-section" id="story">
+      <section className="story" id="story">
         <div className="container">
           <h2 className="section-title">Our Story</h2>
-          <div className="story-content">
-            <div className="story-image">
-              <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1000&auto=format&fit=crop" alt="The Couple" />
+          <div className="story-grid">
+            <div className="story-img">
+              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop" alt="Traditional Couple" />
+              <div className="img-frame"></div>
             </div>
             <div className="story-text">
-              <h3>How It All Began</h3>
-              <p>It was a rainy Tuesday afternoon when our paths first crossed at a small, cozy coffee shop downtown. From a simple "Is this seat taken?" to endless conversations that lingered long after our coffees went cold, we knew early on that what we had was something truly special.</p>
-              <br/>
-              <p>Years of adventures, travels, and countless beautiful memories later, Adam finally dropped to one knee on our favorite cliffside overlooking the ocean. We can't wait to begin this next magical chapter of our lives, surrounded by the people we love most in the world!</p>
+              <h3 className="great-vibes">Two Souls, One Journey</h3>
+              <p>Our story began with a simple meeting arranged by our families, but it quickly blossomed into a beautiful friendship and then a profound love. Between shared laughs and deep conversations, we found our perfect partner in each other.</p>
+              <p>We are thrilled to embark on this lifelong adventure together and invite you to be part of our most precious celebration.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section event-section" id="event">
-        <div className="container text-center">
-          <h2 className="section-title">The Wedding Day</h2>
-          <p className="section-subtitle">Join us for an evening of love, laughter, and dining.</p>
-          
-          <div className="event-cards">
-            <div className="card">
-              <div className="card-icon">💍</div>
-              <h3>The Ceremony</h3>
-              <p className="time">4:00 PM</p>
-              <p className="venue">The Grand Gardens</p>
-              <p className="address">123 Love Lane, Romance City, NY</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">🥂</div>
-              <h3>Cocktail Hour</h3>
-              <p className="time">5:30 PM</p>
-              <p className="venue">The Estate Terrace</p>
-              <p className="address">Drinks &amp; Hors d'oeuvres</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">🍽️</div>
-              <h3>Reception</h3>
-              <p className="time">7:00 PM - Midnight</p>
-              <p className="venue">The Grand Ballroom</p>
-              <p className="address">Dinner, Toasts &amp; Dancing</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section travel-section" id="travel">
+      <section className="events" id="events">
         <div className="container">
-          <div className="travel-grid">
-            <div className="travel-info">
-              <h2 className="section-title">Travel &amp; Stay</h2>
-              <h3>Accommodations</h3>
-              <p>We have reserved a block of rooms for our guests at <strong>The Plaza Hotel</strong>. Please mention the "Alice &amp; Adam Wedding" when booking to receive the special group rate.</p>
-              <br/>
-              <h3>Transportation</h3>
-              <p>A shuttle service will be provided between The Plaza Hotel and the wedding venue. Shuttles depart the hotel at 3:15 PM and will return every hour starting at 9:00 PM.</p>
+          <h2 className="section-title light">The Ceremonies</h2>
+          <div className="event-grid">
+            <div className="event-card">
+              <div className="event-icon">🌸</div>
+              <h3>Haldi & Mehendi</h3>
+              <p className="event-time">10:00 AM | Nov 14</p>
+              <p className="event-desc">A morning of colors, turmeric, and joy.</p>
             </div>
-            <div className="travel-image">
-              <img src="https://images.unsplash.com/photo-1542314831-c6a4203251ee?q=80&w=1000&auto=format&fit=crop" alt="Hotel Architecture" />
+            <div className="event-card">
+              <div className="event-icon">🪔</div>
+              <h3>Muhurtham</h3>
+              <p className="event-time">11:30 AM | Nov 15</p>
+              <p className="event-desc">The sacred union under the Vedic chants.</p>
+            </div>
+            <div className="event-card">
+              <div className="event-icon">✨</div>
+              <h3>Grand Reception</h3>
+              <p className="event-time">07:00 PM | Nov 15</p>
+              <p className="event-desc">An evening of music, dinner, and celebration.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section rsvp-section" id="rsvp">
-        <div className="container text-center">
-          <h2 className="section-title">RSVP</h2>
-          <p className="section-subtitle">Kindly reply by October 1st, 2026</p>
+      <section className="rsvp" id="rsvp">
+        <div className="container narrow">
+          <h2 className="section-title">Will You Join Us?</h2>
+          <p className="rsvp-subtitle">Please confirm your attendance by Oct 1st</p>
           <form className="rsvp-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <input type="text" placeholder="Full Name(s)" required />
+            <div className="form-row">
+              <input type="text" placeholder="Your Full Name" required />
             </div>
-            <div className="form-group">
+            <div className="form-row">
               <input type="email" placeholder="Email Address" required />
             </div>
-            <div className="form-group">
-              <select required defaultValue="">
-                <option value="" disabled>Will you be attending?</option>
-                <option value="yes">Joyfully Accepts</option>
-                <option value="no">Regretfully Declines</option>
+            <div className="form-row">
+              <select required>
+                <option value="">Will you be attending?</option>
+                <option value="yes">Accepts with Pleasure</option>
+                <option value="no">Declines with Regret</option>
               </select>
             </div>
-            <div className="form-group">
-              <input type="number" placeholder="Number of Guests" min="1" max="5" />
+            <div className="form-row">
+              <textarea placeholder="Any dietary preferences or wishes..."></textarea>
             </div>
-            <div className="form-group">
-              <textarea placeholder="Dietary Restrictions or Special Notes"></textarea>
-            </div>
-            <button type="submit" className="btn-primary">Send RSVP</button>
+            <button type="submit" className="btn-premium">Confirm Attendance</button>
           </form>
         </div>
       </section>
 
       <footer className="footer">
-        <h2>A &amp; A</h2>
-        <p>11 . 15 . 2026</p>
-        <p className="built-with">Built with ❤️ for our special day</p>
+        <p className="footer-names great-vibes">Chinni & Chinnu</p>
+        <p className="footer-thanks">Thank you for your love and blessings.</p>
+        <div className="footer-pattern"></div>
       </footer>
     </div>
   );
