@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import OurStory from './components/OurStory';
 import Events from './components/Events';
 import Gallery from './components/Gallery';
+import Food from './components/Food';
 import Venue from './components/Venue';
 import Blessings from './components/Blessings';
 import Contact from './components/Contact';
@@ -18,6 +19,7 @@ function App() {
           <a href="#home">Home</a>
           <a href="#story">Story</a>
           <a href="#events">Events</a>
+          <a href="#food">Feast</a>
           <a href="#gallery">Gallery</a>
           <a href="#venue">Venue</a>
           <a href="#blessings">Blessings</a>
@@ -29,6 +31,7 @@ function App() {
         <Hero />
         <OurStory />
         <Events />
+        <Food />
         <Gallery />
         <Venue />
         <Blessings />
