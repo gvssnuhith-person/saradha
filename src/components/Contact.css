@@ -1,0 +1,20 @@
+.contact-card {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-item strong {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--primary-red);
+  margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+  font-size: 1.1rem;
+  color: #333;
+}
